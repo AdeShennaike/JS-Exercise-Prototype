@@ -41,7 +41,20 @@ Airplane.prototype.land = function () {
 
 function Person(name, age) {
   this.name = name;
-  this.age =age;
+  this.age = age;
+  this.stomach = [];
+
+  Person.prototype.eat = function(someFood){
+    if(this.stomach.length < 10){
+      this.stomach.push(someFood)
+    }
+  }
+  Person.prototype.poop = function(){
+    this.stomach = []
+  }
+  Person.prototype.toString = function(){
+    return `${this.name}, ${this.age}}`
+  }
 }
 
 
@@ -78,9 +91,14 @@ function Car(model, milesPerGallon) {
         + Should return a string "Playing with x", x being the favorite toy.
 */
 function Baby(name, age, favoriteToy) {
- this.name = name;
- this.age = age;
  this.favoriteToy = favoriteToy;
+ Person.call(this, name, age)
+
+ Baby.prototype.play = function(){
+   return `Playing with ${this.favoriteToy}`
+ }
+
+ Baby.prototype = Object.create(Person.prototype)
 }
 
 
