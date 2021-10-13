@@ -39,8 +39,9 @@ Airplane.prototype.land = function () {
         + It should return a string with `name` and `age`. Example: "Mary, 50"
 */
 
-function Person() {
-  
+function Person(name, age) {
+  this.name = name;
+  this.age =age;
 }
 
 
@@ -63,8 +64,9 @@ function Person() {
         + The `drive` method should return a string "I ran out of fuel at x miles!" x being `odometer`.
 */
 
-function Car() {
-  
+function Car(model, milesPerGallon) {
+  this.model = model;
+  this.milesPerGallon = milesPerGallon;
 }
 
 
@@ -75,18 +77,27 @@ function Car() {
     - Besides the methods on Person.prototype, babies have the ability to `.play()`:
         + Should return a string "Playing with x", x being the favorite toy.
 */
-function Baby() {
- 
+function Baby(name, age, favoriteToy) {
+ this.name = name;
+ this.age = age;
+ this.favoriteToy = favoriteToy;
 }
 
 
 /* 
   TASK 4
   In your own words explain the four principles for the "this" keyword below:
-  1. 
-  2. 
-  3. 
-  4. 
+  1. Window binding
+  Theres no current object so this defaults to window.
+
+  2. implicit binding
+  Its implied the object to the left of the dot is being referred to. The object you are inside.
+
+  3. explicit binding
+  'This' is explicitly referring to an object. Its to the right of the dot.
+
+  4. new binding
+  Its pointing to the new object created by the constructor function.
 */
 
 
